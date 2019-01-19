@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Mahmoud Marouf</title>
+
+          <!-- Required meta tags -->
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+          <!-- Bootstrap CSS -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px 20px 0px 20px;
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrapper'>
+        <div>
+        <div class='details'>
+            <main role="main">
+                <div class="container">
+                  {% for item in cvs %}
+                  <h3 class="text-center">{{ item.name }}</h3>
+                  <p class="text-center">Summary: <br>{{ item.summary }}</p>
+
+                  <hr class='hrItem' />
+                  <h6>CONTACT INFORMATION:</h6>
+                  <p>Email: {{ item.email}}</p>
+                  <p>Phone Number: {{ item.phone_number}}</p>
+                  <p>Git Hub Link: {{ item.git_hub_link}}</p>
+                  <hr class='hrItem' />
+                  <h6>PERSONAL INFORMATION:</h6>
+                  <p>Data of Birth: {{ item.date_of_birth }}</p>
+                  <p>Marital Status : {{ item.marital_status }}</p>
+                  <p>Nationality : {{ item.nationality }}</p>
+                  <p>Military Status : {{ item.military_status}}</p>
+                  <hr class='hrItem' />
+                  <h6>EDUCATION:</h6>
+                  <p>{{ item.education}}</p>
+                  {% endfor %}
+                  <hr class='hrItem' />
+                  {% for items in Certification %}
+                  <h6>CERTIFICATIONS:</h6>
+                  <p>{{ items.certifications }}</p>
+                  <p>Verify: {{ items.Verify }}</p>
+                  {% endfor %}
+                  <hr class='hrItem' />
+                  <br>
+                  <br>
+                  <h6>COURSES:</h6>
+                  {% for items in courses %}
+                  <ul>
+                      <li>{{ items.course_name }}</li>
+                  </ul>
+                  {% endfor %}
+                  <hr class='hrItem' />
+                  <h6>TECHNICAL SKILLS:</h6>
+                  {% for items in skills %}
+                  <ul>
+                      <li>{{ items.skill }}</li>
+                  </ul>
+                  {% endfor %}
+
+              </div>
+            </main>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

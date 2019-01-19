@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main role="main">
+    <div class="container">
+      {% for item in cvs %}
+      <a href="{% url 'cv:pro-detail' item.slug %}"><h3 class="text-center">{{ item.name }}</h3></a>
+      <div class="col-2 mx-auto">
+          <img src="{{ item.img.url }}" class="border border-primary img-fluid" height="200" width="200">
+      </div>
+      <h5 class="text-center">{{ item.title }}</h5>
+      <p class="text-center">Summary: <br>{{ item.summary }}</p>
+
+      <hr class='hrItem' />
+      <h6>CONTACT INFORMATION:</h6>
+      <p>Email: {{ item.email}}</p>
+      <p>Phone Number: {{ item.phone_number}}</p>
+      <p>Git Hub Link: {{ item.git_hub_link}}</p>
+      <hr class='hrItem' />
+      <h6>PERSONAL INFORMATION:</h6>
+      <p>Data of Birth: {{ item.date_of_birth }}</p>
+      <p>Marital Status : {{ item.marital_status }}</p>
+      <p>Nationality : {{ item.nationality }}</p>
+      <p>Military Status : {{ item.military_status}}</p>
+      <hr class='hrItem' />
+      <h6>EDUCATION:</h6>
+      <p>{{ item.education}}</p>
+      {% endfor %}
+      <hr class='hrItem' />
+      {% for items in Certification %}
+      <h6>CERTIFICATIONS:</h6>
+      <p>{{ items.certifications }}</p>
+      <p>Verify: {{ items.Verify }}</p>
+      {% endfor %}
+      <hr class='hrItem' />
+      <br>
+      <h6>COURSES:</h6>
+      {% for items in courses %}
+      <ul>
+          <li>{{ items.course_name }}</li>
+      </ul>
+      {% endfor %}
+      <hr class='hrItem' />
+      <h6>TECHNICAL SKILLS:</h6>
+      {% for items in skills %}
+      <ul>
+          <li>{{ items.skill }}</li>
+      </ul>
+      {% endfor %}
+      
+  </div>
+</main>
+
+{% endblock %}
