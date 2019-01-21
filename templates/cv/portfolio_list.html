@@ -1,55 +1,81 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
-<main role="main">
-    <div class="container">
+
       {% for item in cvs %}
-      <a href="{% url 'cv:pro-detail' item.slug %}"><h3 class="text-center">{{ item.name }}</h3></a>
-      <div class="col-2 mx-auto">
-          <img src="{{ item.img.url }}" class="border border-primary img-fluid" height="200" width="200">
+      <div class="entry">
+        <!-- Begin Image -->
+        <img class="portrait" src="{{ item.img.url }}" height="250" width="200" />
+        <!-- End Image -->
+        <!-- Begin Personal Information -->
+        <div class="self">
+            <ul class="name">
+                <h2 >{{ item.name }}<br /></h2>
+            </ul>
+
+
+          <ul>
+              <br>
+            <li class="mail">{{ item.email}}</li>
+            <li class="tel">{{ item.phone_number}}</li>
+            <li class="web">{{ item.git_hub_link}}</li>
+
+          </ul>
+        </div>
+        <!-- End Personal Information -->
+        <!-- Begin Social -->
+        <div class="social">
+          <ul>
+            <li><a class='north' href="{% url 'cv:pdf' %}" title="Download .pdf"><img src="{% static 'blue/images/icn-save.jpg' %}" alt="Download the pdf version" /></a></li>
+          </ul>
+        </div>
+        <!-- End Social -->
       </div>
-      <h5 class="text-center">{{ item.title }}</h5>
-      <p class="text-center">Summary: <br>{{ item.summary }}</p>
-
-      <hr class='hrItem' />
-      <h6>CONTACT INFORMATION:</h6>
-      <p>Email: {{ item.email}}</p>
-      <p>Phone Number: {{ item.phone_number}}</p>
-      <p>Git Hub Link: {{ item.git_hub_link}}</p>
-      <hr class='hrItem' />
-      <h6>PERSONAL INFORMATION:</h6>
-      <p>Data of Birth: {{ item.date_of_birth }}</p>
-      <p>Marital Status : {{ item.marital_status }}</p>
-      <p>Nationality : {{ item.nationality }}</p>
-      <p>Military Status : {{ item.military_status}}</p>
-      <hr class='hrItem' />
-      <h6>EDUCATION:</h6>
-      <p>{{ item.education}}</p>
+      <!-- Begin 1st Row -->
+      <div class="entry">
+        <h2>OBJECTIVE</h2>
+        <p>{{ item.summary }}</p>
+      </div>
+      <!-- End 1st Row -->
+      <!-- Begin 2nd Row -->
+      <div class="entry">
+        <h2>EDUCATION</h2>
+        <div class="content">
+          <p><p>{{ item.education}}</p><br />
+        </div>
+      </div>
       {% endfor %}
+      <div class="entry">
+        <h2>CERTIFICATIONS</h2>
+        <div class="content">
+            {% for items in Certification %}
+            <ul class="skills">
+                <p>{{ items.certifications }}</p>
+                <p>Verify: {{ items.Verify }}</p>
+            </ul>
+            {% endfor %}
+        </div>
+      </div>
+      <div class="entry">
+        <h2>COURSES</h2>
+        <div class="content">
+            {% for items in courses %}
+            <ul class="skills">
+                <p>{{ items.course_name }}</p>
+                <p></p>
+            </ul>
+            {% endfor %}
+        </div>
+      </div>
       <hr class='hrItem' />
-      {% for items in Certification %}
-      <h6>CERTIFICATIONS:</h6>
-      <p>{{ items.certifications }}</p>
-      <p>Verify: {{ items.Verify }}</p>
-      {% endfor %}
-      <hr class='hrItem' />
-      <br>
-      <h6>COURSES:</h6>
-      {% for items in courses %}
-      <ul>
-          <li>{{ items.course_name }}</li>
-      </ul>
-      {% endfor %}
-      <hr class='hrItem' />
-      <h6>TECHNICAL SKILLS:</h6>
-      {% for items in skills %}
-      <ul>
-          <li>{{ items.skill }}</li>
-      </ul>
-      {% endfor %}
-      
-  </div>
-</main>
-
+      <div class="entry">
+        <h2>SKILLS</h2>
+        <div class="content">
+          {% for items in skills %}
+          <ul class="skills">
+              <li>{{ items.skill }}</li>
+          </ul>
+          {% endfor %}
+      </div>
 {% endblock %}

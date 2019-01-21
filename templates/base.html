@@ -1,41 +1,48 @@
-
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Portfolio</title>
-  </head>
-  <body>
-
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-auto">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="{% url 'cv:home' %}">Home <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'cv:pdf' %}">Download The Resume</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Resume</title>
+<link type="text/css" rel="stylesheet" href="{% static 'blue/css/blue.css' %}" />
+<link type="text/css" rel="stylesheet" href="{% static 'blue/css/print.css' %}" media="print"/>
+<!--[if IE 7]>
+<link href="css/ie7.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 6]>
+<link href="css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script type="text/javascript" src="{% static 'blue/js/jquery-1.4.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'blue/js/jquery.tipsy.js' %}"></script>
+<script type="text/javascript" src="{% static 'blue/js/cufon.yui.js' %}"></script>
+<script type="text/javascript" src="{% static 'blue/js/scrollTo.js' %}"></script>
+<script type="text/javascript" src="{% static 'blue/js/myriad.js' %}"></script>
+<script type="text/javascript" src="{% static 'blue/js/jquery.colorbox.js' %}"></script>
+<script type="text/javascript" src="{% static 'blue/js/custom.js' %}"></script>
+<script type="text/javascript">
+		Cufon.replace('h1,h2');
+</script>
+</head>
+<body>
+<!-- Begin Wrapper -->
+<div id="wrapper">
+  <div class="wrapper-top"></div>
+  <div class="wrapper-mid">
+    <!-- Begin Paper -->
+    <div id="paper">
+      <div class="paper-top"></div>
+      <div id="paper-mid">
 
     {% block content %}
     {% endblock %}
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+                                    </div>
+                                <div class="clear"></div>
+                            <div class="paper-bottom"></div>
+                        </div>
+                        <!-- End Paper -->
+                    </div>
+            </div>
+        <!-- End Wrapper -->
+    </body>
 </html>
